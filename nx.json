@@ -13,6 +13,9 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "data": {
+      "tags": []
     }
   }
 }
