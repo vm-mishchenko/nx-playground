@@ -81,6 +81,42 @@
           }
         }
       }
+    },
+    "publishable-lib": {
+      "root": "libs/publishable-lib",
+      "sourceRoot": "libs/publishable-lib/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/publishable-lib/tsconfig.lib.json",
+              "libs/publishable-lib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/publishable-lib/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/publishable-lib/jest.config.js",
+            "tsConfig": "libs/publishable-lib/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/publishable-lib",
+            "tsConfig": "libs/publishable-lib/tsconfig.lib.json",
+            "packageJson": "libs/publishable-lib/package.json",
+            "main": "libs/publishable-lib/src/index.ts",
+            "assets": ["libs/publishable-lib/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {
