@@ -24,7 +24,9 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "api:docker:build": "docker build  -t mueees/api -f .deploy/api/Dockerfile .",
+    "api:docker:run": "docker run -p 3333:3333 mueees/api"
   },
   "private": true,
   "dependencies": {

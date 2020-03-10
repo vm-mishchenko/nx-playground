@@ -1,0 +1,14 @@
+# compiled output
+dist
+.deploy
+.git/
+.gitignore
+
+# dependencies
+node_modules
+
+# IDEs and editors
+.idea
+
+# misc
+npm-debug.log
