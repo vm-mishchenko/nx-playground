@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const architect_1 = require("@angular-devkit/architect");
+const rxjs_1 = require("rxjs");
+const operators_1 = require("rxjs/operators");
+function runBuilder(options, context) {
+    return rxjs_1.of({ success: true }).pipe(operators_1.tap(() => {
+        context.logger.info("Builder ran for npm-publisher");
+    }));
+}
+exports.runBuilder = runBuilder;
+exports.default = architect_1.createBuilder(runBuilder);
+//# sourceMappingURL=builder.js.map

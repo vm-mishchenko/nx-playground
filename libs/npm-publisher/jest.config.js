@@ -1,0 +1,9 @@
+module.exports = {
+  name: "npm-publisher",
+  preset: "../../jest.config.js",
+  transform: {
+    "^.+\\.[tj]sx?$": "ts-jest"
+  },
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "html"],
+  coverageDirectory: "../../coverage/libs/npm-publisher"
+};

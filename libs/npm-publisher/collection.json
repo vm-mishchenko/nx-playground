@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "name": "npm-publisher",
+  "version": "0.0.1",
+  "schematics": {
+    "npmPublisher": {
+      "factory": "./src/schematics/npm-publisher/schematic",
+      "schema": "./src/schematics/npm-publisher/schema.json",
+      "description": "npm-publisher schematic"
+    }
+  }
+}

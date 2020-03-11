@@ -19,6 +19,13 @@
     },
     "publishable-lib": {
       "tags": []
+    },
+    "npm-publisher": {
+      "tags": []
+    },
+    "npm-publisher-e2e": {
+      "tags": [],
+      "implicitDependencies": ["npm-publisher"]
     }
   }
 }
