@@ -14,9 +14,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -45,10 +43,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
         "test": {
@@ -74,10 +69,7 @@
               "libs/data/tsconfig.lib.json",
               "libs/data/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/data/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/data/**"]
           }
         },
         "test": {
@@ -103,10 +95,7 @@
               "libs/publishable-lib/tsconfig.lib.json",
               "libs/publishable-lib/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/publishable-lib/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/publishable-lib/**"]
           }
         },
         "test": {
@@ -124,15 +113,12 @@
             "tsConfig": "libs/publishable-lib/tsconfig.lib.json",
             "packageJson": "libs/publishable-lib/package.json",
             "main": "libs/publishable-lib/src/index.ts",
-            "assets": [
-              "libs/publishable-lib/*.md"
-            ]
+            "assets": ["libs/publishable-lib/*.md"]
           }
         },
         "publish": {
           "builder": "./tools/libs/npm-publisher:build",
-          "options": {
-          }
+          "options": {}
         }
       }
     },
@@ -149,10 +135,7 @@
               "libs/npm-publisher/tsconfig.lib.json",
               "libs/npm-publisher/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/npm-publisher/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/npm-publisher/**"]
           }
         },
         "test": {
@@ -205,6 +188,61 @@
             "pluginOutputPath": "dist/libs/npm-publisher",
             "jestConfig": "apps/npm-publisher-e2e/jest.config.js",
             "tsSpecConfig": "apps/npm-publisher-e2e/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "api-second": {
+      "root": "apps/api-second",
+      "sourceRoot": "apps/api-second/src",
+      "projectType": "application",
+      "prefix": "api-second",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api-second",
+            "main": "apps/api-second/src/main.ts",
+            "tsConfig": "apps/api-second/tsconfig.app.json",
+            "assets": ["apps/api-second/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api-second/src/environments/environment.ts",
+                  "with": "apps/api-second/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api-second:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api-second/tsconfig.app.json",
+              "apps/api-second/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api-second/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api-second/jest.config.js",
+            "tsConfig": "apps/api-second/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }

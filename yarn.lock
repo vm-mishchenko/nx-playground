@@ -1057,12 +1057,12 @@
     "@schematics/angular" "~9.0.1"
     jasmine-marbles "~0.6.0"
 
-"@nrwl/cli@9.0.4":
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/cli/-/cli-9.0.4.tgz#662b3be48bccfd43ecf707cf7ad61307803c79fd"
-  integrity sha512-cOg5s4XxCNalkYqMa/Q+e5SibJP9/ykY4rSz07fmpzETJPbMyMoS/FXj4kcyXr2Ox2jovfxkzIw6bjKTRwgbLw==
+"@nrwl/cli@9.1.2":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/cli/-/cli-9.1.2.tgz#2e15f833e354e59f59107362875ce40c882f49f3"
+  integrity sha512-DBRHQz2PcGc0nVL8r4dF0sOb9nMHWeB+5d95yMV5dt8c4h7s55VFIW2LI6IDsl4ImM90mr2ci5jCwLbE/Paj/A==
   dependencies:
-    "@nrwl/tao" "9.0.4"
+    "@nrwl/tao" "9.1.2"
     chalk "2.4.2"
     tmp "0.0.33"
     yargs "^11.0.0"
@@ -1187,10 +1187,10 @@
     yargs "^11.0.0"
     yargs-parser "10.0.0"
 
-"@nrwl/tao@9.0.4":
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-9.0.4.tgz#25873370f164333347e60f45be46c6a8dbd831ee"
-  integrity sha512-+9erevagAOuuyahcuh55+jfUnsuXdrJ4qzEDgTPENhppSMHVc//LuKf9eAaudaPQqMgJIyK0aQSeNzTuYrGp0g==
+"@nrwl/tao@9.1.2":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-9.1.2.tgz#823b45def6b1d8dd005ff700a6e40b9fd970b445"
+  integrity sha512-mhzjocwLjVfTBCiIMQerdQCCdUP5FtWlGkX+XQ1H8Cn9a3OFXd/aHcE98sIFx7ghSArp5ZcuCWdFMmHO9vnsnQ==
   dependencies:
     "@angular-devkit/architect" "~0.900.1"
     "@angular-devkit/core" "~9.0.1"
@@ -1200,14 +1200,15 @@
     minimist "^1.2.0"
     strip-json-comments "2.0.1"
 
-"@nrwl/workspace@9.0.4":
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-9.0.4.tgz#1a8ac5b44c1e34cf267799dedf346307f7c9e82c"
-  integrity sha512-5B6MJJ18bpyQphgDoxgDmoiqtZaswaQzxKV8Qx//02Sx8z3E5WCKGTtrkyh6wLmrLkUjsCIeLgSAyTSN3F0ddQ==
+"@nrwl/workspace@^9.1.2":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-9.1.2.tgz#2e45a15d440296981023d7c4794b6937e27d9402"
+  integrity sha512-H9xxx6nwkB1+ZCImjpQhiaO3BQOgqcxTCqM3rYgbQyn0QVWkJtEgzOvnMg87Mev0gC4X2Io4pdJcSfXx5VKahg==
   dependencies:
     "@angular-devkit/core" "~9.0.1"
     "@angular-devkit/schematics" "~9.0.1"
-    "@nrwl/cli" "9.0.4"
+    "@nrwl/cli" "9.1.2"
+    axios "0.19.2"
     chalk "2.4.2"
     cosmiconfig "4.0.0"
     fs-extra "6.0.0"

@@ -26,6 +26,9 @@
     "npm-publisher-e2e": {
       "tags": [],
       "implicitDependencies": ["npm-publisher"]
+    },
+    "api-second": {
+      "tags": []
     }
   }
 }
