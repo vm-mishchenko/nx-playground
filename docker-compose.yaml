@@ -1,13 +1,45 @@
-version: "3"
+version: "3.4"
 services:
   api:
-    image: node:12-alpine
+    container_name: api
+    # build new image based on "Dockerfile.nestjs.dev" Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile.nestjs.dev
     working_dir: /usr/src
     volumes:
+      # Allow to keep node_modules "inside" the image without exposing files
+      # to local machine. In that way local machine might have own version
+      # of node_modules based on machine system (Linux, Windows, ...etc)
+      - /usr/src/node_modules
       - .:/usr/src
-    command: sh -c "yarn && npx ng serve api"
+    command: sh -c "npx ng serve api"
     ports:
       - 3333:3333
+      # Port for debugger which specified in angular.json file
+      - 5000:5000
     environment:
       - NODE_ENV=development
       - PORT=3333
+    # UID and GID defined in package.json file. While build image
+    # creates dist files with specified permissions. Default is root.
+    user: "${UID}:${GID}"
+  api-second:
+    container_name: api-second
+    # build new image based on "Dockerfile.nestjs.dev" Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile.nestjs.dev
+    working_dir: /usr/src
+    volumes:
+      - /usr/src/node_modules
+      - .:/usr/src
+    command: sh -c "npx ng serve api-second"
+    ports:
+      - 4444:4444
+    environment:
+      - NODE_ENV=development
+      - PORT=4444
+    # UID and GID defined in package.json file. While build image
+    # creates dist files with specified permissions. Default is root.
+    user: "${UID}:${GID}"

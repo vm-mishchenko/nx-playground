@@ -27,7 +27,8 @@
     "help": "nx help",
     "api:docker:build": "docker build  -t mueees/api -f .deploy/api/Dockerfile .",
     "api:docker:run": "docker run -p 3333:3333 mueees/api",
-    "publishable-lib:publish": "ng run publishable-lib:publish"
+    "publishable-lib:publish": "ng run publishable-lib:publish",
+    "docker-compose": "UID=${UID} GID=${GID} docker-compose up"
   },
   "private": true,
   "dependencies": {
