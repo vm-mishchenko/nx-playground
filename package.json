@@ -25,8 +25,9 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "api:docker:build": "docker build  -t mueees/api -f .deploy/api/Dockerfile .",
-    "api:docker:run": "docker run -p 3333:3333 mueees/api",
+    "api:docker:build": "sh tools/api/build-image.sh",
+    "api:docker:push": "sh tools/api/push-image-to-gcloud.sh",
+    "api:docker:run": "sh tools/api/run-image.sh",
     "publishable-lib:publish": "ng run publishable-lib:publish",
     "docker-compose": "UID=${UID} GID=${GID} docker-compose up"
   },

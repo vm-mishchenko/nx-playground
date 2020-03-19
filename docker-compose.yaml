@@ -21,6 +21,7 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3333
+      - FOO=foo-env
     # UID and GID defined in package.json file. While build image
     # creates dist files with specified permissions. Default is root.
     user: "${UID}:${GID}"

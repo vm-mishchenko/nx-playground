@@ -6,7 +6,7 @@ import {Injectable} from '@nestjs/common';
 export class AppService {
   getData(): { message: string } {
     return {
-      message: `Foo is ${FOO}. foo is ${foo()}. Published lib is ${publishableLib()}`
+      message: `Foo is ${FOO}. foo is ${foo()}. Published lib is ${publishableLib()}. Enviroment variable foo is: ${process.env.FOO}`
     };
   }
 }
