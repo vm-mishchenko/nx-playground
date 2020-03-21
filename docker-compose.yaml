@@ -3,6 +3,7 @@ services:
   api:
     container_name: api
     # build new image based on "Dockerfile.nestjs.dev" Dockerfile
+    # That base image contains node_modules dependencies shared between all apps
     build:
       context: .
       dockerfile: Dockerfile.nestjs.dev
@@ -18,10 +19,8 @@ services:
       - 3333:3333
       # Port for debugger which specified in angular.json file
       - 5000:5000
-    environment:
-      - NODE_ENV=development
-      - PORT=3333
-      - FOO=foo-env
+    env_file:
+      - env/apps/api/env
     # UID and GID defined in package.json file. While build image
     # creates dist files with specified permissions. Default is root.
     user: "${UID}:${GID}"
@@ -38,9 +37,8 @@ services:
     command: sh -c "npx ng serve api-second"
     ports:
       - 4444:4444
-    environment:
-      - NODE_ENV=development
-      - PORT=4444
+    env_file:
+      - env/apps/api-second/env
     # UID and GID defined in package.json file. While build image
     # creates dist files with specified permissions. Default is root.
     user: "${UID}:${GID}"
