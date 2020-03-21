@@ -15,7 +15,9 @@ describe("AppService", () => {
 
   describe("getData", () => {
     it('should return "Welcome to api!"', () => {
-      expect(service.getData()).toEqual({ message: "Welcome to api!" });
+      expect(service.getData()).toEqual({
+        message: "1 Foo is 42. foo is publishable-lib. Published lib is publishable-lib. Enviroment variable foo is: undefined"
+      });
     });
   });
 });

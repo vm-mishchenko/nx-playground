@@ -1,0 +1,42 @@
+steps:
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: /bin/bash
+    args:
+      - -c
+      - |
+        # Cloud Build doesn't recover the .git file. Thus checkout the repo for this
+        git clone --branch master https://github.com/vm-mishchenko/nx-playground.git /tmp/repo ;
+        # Copy only the .git file
+        mv /tmp/repo/.git .
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install', '@nrwl/workspace']
+  - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        IFS=' ' read -a apps <<< $(npx nx affected:apps --base=origin/master~1 --plain)
+        for app in "${apps[@]}"
+        do
+        echo apps/$app
+        done >> affected.txt
+
+  - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        IFS=' ' read -a libs<<< $(npx nx affected:libs --base=origin/master~1 --plain)
+        for lib in "${libs[@]}"
+        do
+        echo libs/$lib
+        done >> affected.txt
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        while IFS= read -r project; do
+         gcloud builds submit --config ./$project/cloudbuild.yaml .
+        done < affected.txt
