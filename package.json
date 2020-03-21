@@ -25,11 +25,13 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "publishable-lib:publish": "ng run publishable-lib:publish",
+    "docker-compose": "UID=${UID} GID=${GID} docker-compose up",
+    ">>": "API APPLICATION RELATED COMMAND, SHOULD BE REPLACED AFTERWARDS BY MORE GENERIC COMMANDS",
     "api:docker:build": "sh tools/api/build-image.sh",
     "api:docker:push": "sh tools/api/push-image-to-gcloud.sh",
     "api:docker:run": "sh tools/api/run-image.sh",
-    "publishable-lib:publish": "ng run publishable-lib:publish",
-    "docker-compose": "UID=${UID} GID=${GID} docker-compose up"
+    "api:deploy": "node tools/api/deploy.js"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,8 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "shelljs": "^0.8.3",
+    "@google-cloud/storage": "^4.6.0",
     "@angular/cli": "9.0.1",
     "@nrwl/angular": "^9.0.4",
     "@nrwl/nest": "^9.0.4",
